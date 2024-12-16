@@ -1,0 +1,15 @@
+# product_finder/templates/product_finder/upload.html
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Upload Product Image</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="file" name="image" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search Products</button>
+    </form>
+</div>
+{% endblock %}

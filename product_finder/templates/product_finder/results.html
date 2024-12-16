@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Search Results</h2>
+    <div class="row">
+        {% for result in results %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ result.image_url }}" class="card-img-top" alt="{{ result.title }}">
+                <div class="card-body">
+                    <!-- Rest of your product information -->
+                    <h5 class="card-title">{{ result.title }}</h5>
+                        <p class="card-text">
+                            Price: ₹{{ result.price }}<br>
+                            Source: {{ result.source }}<br>
+                            Similarity: {{ result.similarity_score|floatformat:2 }}
+                        </p>
+                        <a href="{{ result.product_url }}" class="btn btn-primary" target="_blank">
+                            View Product
+                        </a>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
